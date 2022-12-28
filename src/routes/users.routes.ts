@@ -5,3 +5,4 @@ import { ensureEmailIsUniqueMiddleware } from '../middlewares/ensureEmailIsUniqu
 export const userRoutes = Router()
 
 userRoutes.post('/recruiter', ensureEmailIsUniqueMiddleware, createRecruiterController )
+userRoutes.get('/recruiter/:id')
