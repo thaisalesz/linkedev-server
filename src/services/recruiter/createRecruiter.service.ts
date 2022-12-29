@@ -3,7 +3,6 @@ import { AppDataSource } from "../../data-source";
 import { Recruiter } from "../../entities/recruiter";
 import { AppError } from "../../errors/appError";
 import { IRecruiterRequest } from "../../interfaces/recruiter";
-import { createUserService } from "../user/createUser.service";
 
 
 export const createRecruiterService = async (data: IRecruiterRequest) => {
