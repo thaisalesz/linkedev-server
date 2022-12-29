@@ -1,12 +1,9 @@
-import {Entity, Column, PrimaryGeneratedColumn, OneToMany} from 'typeorm'
+import {Entity, Column, PrimaryGeneratedColumn, OneToMany, ChildEntity} from 'typeorm'
 import { Job } from './job';
 import { User } from './user';
 
-@Entity('recruiter')
+@ChildEntity('recruiter')
 export class Recruiter extends User{
-    @PrimaryGeneratedColumn('uuid')
-    readonly id: string;
-
     @Column({length: 30, nullable: true})
     company: string;
 

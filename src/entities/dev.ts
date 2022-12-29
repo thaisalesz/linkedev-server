@@ -1,14 +1,11 @@
-import {Entity, Column, PrimaryGeneratedColumn, ManyToMany, OneToMany, JoinColumn, JoinTable} from 'typeorm'
+import {Entity, Column, PrimaryGeneratedColumn, ManyToMany, OneToMany, JoinColumn, JoinTable, ChildEntity} from 'typeorm'
 import { Application } from './application';
 import { Skill } from './skill';
 import { User } from './user';
 
 
-@Entity('dev')
+@ChildEntity('dev')
 export class Dev extends User{
-    @PrimaryGeneratedColumn('uuid')
-    readonly id: string;
-
     @Column({length: 60})
     title: string;
 

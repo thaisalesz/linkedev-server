@@ -1,7 +1,8 @@
-import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn} from "typeorm"
+import {Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn, TableInheritance} from "typeorm"
 import {Exclude} from 'class-transformer'
 
 @Entity('user')
+@TableInheritance({column: {type: 'varchar', name: 'role'}})
 export class User {
     @PrimaryGeneratedColumn('uuid')
     readonly id: string;
@@ -20,10 +21,10 @@ export class User {
     social: string;
 
     @Column({length: 200})
-    avatarUrl: string;
+    avatarUrl: string; 
 
-    @Column({length: 10})
-    role: string;    
+    @Column({length: 15})
+    role: string;
 
     @CreateDateColumn()
     createdAt: Date;

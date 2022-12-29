@@ -19,7 +19,7 @@ export const authenticationMiddleware = async (req: Request, res: Response, next
             if(!decoded){
                 throw new AppError('Invalid token', 401)
             }
-
+            console.log(decoded)
             req.user = {
                 id: decoded.userId,
                 role: decoded.userRole
