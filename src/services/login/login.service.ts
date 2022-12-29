@@ -18,11 +18,11 @@ export const loginService = async (userData: ILoginRequest)  => {
     const userRepository = AppDataSource.getRepository(User)
 
     const user = await userRepository.findOneBy({email: userData.email})
-
+    
     if(!user){
         throw new AppError('Invalid user or password', 403)
     }
-
+    console.log(user)
     const checkPass = compareSync(userData.password, user.password)
 
     if(!checkPass){
@@ -32,7 +32,7 @@ export const loginService = async (userData: ILoginRequest)  => {
     const token = jwt.sign(
         {
             userId: user.id,
-            userRole: user.role
+            // userRole: user.type
         },
         process.env.SECRET_KEY as string,
         {

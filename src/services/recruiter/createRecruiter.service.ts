@@ -28,7 +28,6 @@ export const createRecruiterService = async (data: IRecruiterRequest) => {
     
     const hashPassword = hashSync(data.password, 10)   
 
-    const newUser = createUserService({...data, password: hashPassword})
     const recruiterRepository = AppDataSource.getRepository(Recruiter)
     const newRecruiter = recruiterRepository.create({...data, password: hashPassword})
     await recruiterRepository.save(newRecruiter)

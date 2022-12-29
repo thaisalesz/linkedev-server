@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { instanceToPlain } from 'class-transformer'
 import { IRecruiterRequest } from '../interfaces/recruiter'
-import { createRecruiterService } from '../services/recruiter/createRecruiter.services'
+import { createRecruiterService } from '../services/recruiter/createRecruiter.service'
 import { listRecruiterService } from '../services/recruiter/listRecruiter.service'
 
 
