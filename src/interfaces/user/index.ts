@@ -9,3 +9,8 @@ export interface IUserRequest {
     title?: string;
     level?: string;
 }
+
+export interface ILoginRequest {
+    email: string;
+    password: string
+}
