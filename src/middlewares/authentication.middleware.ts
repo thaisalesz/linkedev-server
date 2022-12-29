@@ -20,8 +20,10 @@ export const authenticationMiddleware = async (req: Request, res: Response, next
                 throw new AppError('Invalid token', 401)
             }
 
-            req.user.id = decoded.userId
-            req.user.role = decoded.userRole
+            req.user = {
+                id: decoded.userId,
+                role: decoded.userRole
+            }             
 
             return next()
         })
