@@ -1,4 +1,5 @@
-import { NextFunction, Request } from "express";
+import { NextFunction, Request, Response } from "express";
+import { AppError } from "../errors/appError";
 
 
 export const ensureUserIdMacthParamsIdMiddleware = 
@@ -6,5 +7,9 @@ export const ensureUserIdMacthParamsIdMiddleware =
         const paramsId = req.params.id
         const userId = req.user.id
 
-        
+        if(paramsId === userId){
+           return next()
+        }
+
+        throw new AppError("Unauthorized", 403)
 }
