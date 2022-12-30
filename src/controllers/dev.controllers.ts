@@ -7,5 +7,5 @@ export const createDevController = async (req: Request, res: Response) => {
     const devData: IDevRequest = req.body
     const dev = await createDevService(devData)
 
-    return res.status(203).json({ data: dev })
+    return res.status(201).json({ data: dev })
 }
