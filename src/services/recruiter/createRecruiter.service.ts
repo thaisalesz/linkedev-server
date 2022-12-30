@@ -1,4 +1,5 @@
 import { hashSync } from "bcrypt";
+import { instanceToPlain } from "class-transformer";
 import { AppDataSource } from "../../data-source";
 import { Recruiter } from "../../entities/recruiter";
 import { AppError } from "../../errors/appError";
@@ -31,5 +32,5 @@ export const createRecruiterService = async (data: IRecruiterRequest) => {
     const newRecruiter = recruiterRepository.create({...data, password: hashPassword})
     await recruiterRepository.save(newRecruiter)
 
-    return newRecruiter
+    return instanceToPlain(newRecruiter)
 }
