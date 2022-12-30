@@ -10,6 +10,7 @@ export const updateRecruiterService = async (data: IRecruiterUpdate, recruiterId
     let checkKeys = Object.keys(data).map(
         item =>
           item.includes("name") ||
+          item.includes("lastName") ||
           item.includes("email") ||
           item.includes("password") ||
           item.includes("social") ||
@@ -30,6 +31,7 @@ export const updateRecruiterService = async (data: IRecruiterUpdate, recruiterId
             recruiterId,
             {
                 name: data.name ? data.name : recruiter.name,
+                lastName: data.lastName ? data.lastName : recruiter.lastName,
                 email: data.email ? data.email : recruiter.email,
                 password: data.password ? hashSync(data.password, 10) : recruiter.password,
                 social: data.social ? data.social : recruiter.social,

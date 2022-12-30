@@ -7,13 +7,14 @@ import { IRecruiterRequest } from "../../interfaces/recruiter";
 
 
 export const createRecruiterService = async (data: IRecruiterRequest) => {
-    if(Object.keys(data).length < 6 ){
+    if(Object.keys(data).length < 7 ){
         throw new AppError("Required field is missing")
     }
     
     let checkKeys = Object.keys(data).map(
         item => 
         item.includes("name") ||
+        item.includes("lastName") ||
         item.includes("email") ||
         item.includes("password") ||
         item.includes("social") ||

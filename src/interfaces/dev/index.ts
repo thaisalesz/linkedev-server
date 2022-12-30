@@ -1,7 +1,10 @@
 import { Skill } from "../../entities/skill";
+import { ISkill } from "../skill";
+
 
 export interface IDevRequest {
     name: string;
+    lastName: string;
     email: string;
     password: string;
     social: string;
@@ -9,12 +12,13 @@ export interface IDevRequest {
     role: string;    
     title: string;
     level: string;
-    skills: Skill[];
+    skills: string[];
 }
 
 export interface IDev {
     id: string;
     name: string;
+    lastName: string;
     email: string;
     password: string;
     social: string;
@@ -22,13 +26,14 @@ export interface IDev {
     role: string;
     title: string;
     level: string;
-    skills: Skill[];
+    skills: ISkill[];
     createdAt: Date;
     updatedAt: Date;
 }
 
 export interface IDevUpdate {
     name: string;
+    lastName: string;
     email: string;
     password: string;
     social: string;

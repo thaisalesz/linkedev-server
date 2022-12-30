@@ -1,5 +1,6 @@
 export interface IRecruiterRequest {
     name: string;
+    lastName: string;
     email: string;
     password: string;
     social: string;
@@ -11,6 +12,7 @@ export interface IRecruiterRequest {
 export interface IRecruiter {
     id: string;
     name: string;
+    lastName: string;
     email: string;
     password: string;
     social: string;
@@ -23,6 +25,7 @@ export interface IRecruiter {
 
 export interface IRecruiterUpdate{
     name?: string;
+    lastName?: string;
     email?: string;
     password?: string;
     social?: string;
