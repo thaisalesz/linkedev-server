@@ -9,7 +9,7 @@ export const listRecruiterService = async (id: string) => {
     const recruiter = await recruiterRepository.findOneBy({id})
 
     if(!recruiter){
-        throw new AppError("Id does not match with an registered recruiter", 404)
+        throw new AppError("Id does not match a registered recruiter", 404)
     }
 
     return instanceToPlain(recruiter)
