@@ -32,13 +32,12 @@ export interface IDev {
 }
 
 export interface IDevUpdate {
-    name: string;
-    lastName: string;
-    email: string;
-    password: string;
-    social: string;
-    avatarUrl: string;
-    title: string;
-    level: string;
-    skills: Skill[];
+    name?: string;
+    lastName?: string;
+    password?: string;
+    social?: string;
+    avatarUrl?: string;
+    title?: string;
+    level?: string;
+    skills?: string[];
 }

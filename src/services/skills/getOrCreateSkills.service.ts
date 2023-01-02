@@ -3,7 +3,7 @@ import { Skill } from "../../entities/skill";
 
 
 
-export const createSkillsService = async (skills:string[]) => {
+export const getOrCreateSkillsService = async (skills:string[]) => {
     const skillsRepository = AppDataSource.getRepository(Skill)
 
     const skillsList = await Promise.all(skills.map(async (skill) => {

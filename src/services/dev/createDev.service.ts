@@ -4,7 +4,7 @@ import { AppDataSource } from "../../data-source";
 import { Dev } from "../../entities/dev";
 import { AppError } from "../../errors/appError";
 import { IDevRequest } from "../../interfaces/dev";
-import { createSkillsService } from "../skills/createSkills.service";
+import { getOrCreateSkillsService } from "../skills/getOrCreateSkills.service";
 
 export const createDevService = async (data: IDevRequest) => {
     if(Object.keys(data).length < 10 ){
@@ -32,7 +32,7 @@ export const createDevService = async (data: IDevRequest) => {
     const devRepository = AppDataSource.getRepository(Dev)
     const hashPassword = hashSync(data.password, 10)
 
-    const skills = await createSkillsService(data.skills)
+    const skills = await getOrCreateSkillsService(data.skills)
     const newDev = devRepository.create({
         ...data,
         password: hashPassword,
