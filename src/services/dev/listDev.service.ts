@@ -12,7 +12,7 @@ export const listDevService = async (devId: string) => {
     })
 
     if(!dev){
-        throw new AppError("Id does not match with a registered Dev", 404)
+        throw new AppError("Id does not match a registered Developer", 404)
     }
 
     return instanceToPlain(dev)
