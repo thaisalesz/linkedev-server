@@ -11,7 +11,6 @@ export const updateRecruiterService = async (data: IRecruiterUpdate, recruiterId
         item =>
           item.includes("name") ||
           item.includes("lastName") ||
-          item.includes("email") ||
           item.includes("password") ||
           item.includes("social") ||
           item.includes("avatarUrl") ||
@@ -32,7 +31,6 @@ export const updateRecruiterService = async (data: IRecruiterUpdate, recruiterId
             {
                 name: data.name ? data.name : recruiter.name,
                 lastName: data.lastName ? data.lastName : recruiter.lastName,
-                email: data.email ? data.email : recruiter.email,
                 password: data.password ? hashSync(data.password, 10) : recruiter.password,
                 social: data.social ? data.social : recruiter.social,
                 avatarUrl: data.avatarUrl ? data.avatarUrl : recruiter.avatarUrl,
