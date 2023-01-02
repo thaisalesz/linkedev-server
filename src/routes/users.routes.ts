@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { createDevController, updateDevController } from '../controllers/dev.controllers'
+import { createDevController, listDevController, updateDevController } from '../controllers/dev.controllers'
 import { createRecruiterController, listRecruiterController, updateRecruiterController } from '../controllers/recruiter.controllers'
 import { authenticationMiddleware } from '../middlewares/authentication.middleware'
 import { ensureEmailIsUniqueMiddleware } from '../middlewares/ensureEmailIsUnique.middleware'
@@ -15,6 +15,8 @@ userRoutes.patch('/recruiter/:id', authenticationMiddleware,
                                     updateRecruiterController)
 
 userRoutes.post('/dev', ensureEmailIsUniqueMiddleware, createDevController)
+userRoutes.get('/dev/:id', authenticationMiddleware,
+                            listDevController)
 userRoutes.patch('/dev/:id', authenticationMiddleware,
                             ensureUserIdMacthParamsIdMiddleware,
                             updateDevController)
